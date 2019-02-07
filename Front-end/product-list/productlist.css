@@ -1,0 +1,114 @@
+/* Add your css styles here */
+#container {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+
+#table {
+    width: 100%;
+}
+
+.box {
+    border: 1px solid grey;
+}
+
+.left {
+    width: 30%;
+}
+
+.right {
+    width: 60%;
+}
+
+.color {
+    height: 20px;
+    width: 20px;
+}
+
+#blue{
+    background-color: #E6F1F5; 
+}
+
+#beige{
+    background-color: #F4E7D7; 
+}
+
+#pink{
+    background-color: #E4BAC2; 
+}
+
+#yellow{
+    background-color: #E5D83C; 
+}
+
+#white{
+    background-color: white; 
+}
+
+#save {
+    text-decoration: bold;
+    color: pink;
+    border: 0.5px solid pink;
+    background-color: white;
+}
+
+#delete {
+    text-decoration: underline;
+    color: grey;
+    background-color: white;
+    border: none;
+}
+
+#clear {
+    text-decoration: underline;
+    color: grey;
+    background-color: white;
+    border: none;
+}
+
+.product-text {
+    width: 100%;
+    border: 0.2px solid grey;
+}
+
+#prod-name {
+    height: 30px;
+}
+
+#prod-detail {
+    height: 200px;
+}
+
+.product-item {
+    padding: 0;
+    margin: 0;
+    
+}
+
+#prod-custom {
+    height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+}
+
+#left-side {
+    width: 70%;
+    height: 100%;
+    padding: 0;
+    text-align: left;
+}
+
+#right-side {
+    width: 30%;
+    padding: 0;
+}
+
+#errorMessage {
+    color: red;
+    border: 0.2px solid red;
+    height: 40px;
+    margin: auto;
+    display : none;
+}

@@ -1,0 +1,43 @@
+<!-- Enter your HTML code here -->
+<body>
+    <div id="container">
+        <div id="errorMessage">
+            Please select a Product Name
+        </div>
+        <h1> My Beauty Faves</h1>
+        <table id="table">
+            <tr>
+                <th class="left"><h3>Product List</h3></th>
+                <th class="right"><h3>Beauty Product</h3></th>
+            </tr>
+            <tr>
+                <th class="left box" id="product-list">
+                </th>
+                <th class="right box">
+                    <textarea class="product-text" placeholder="Product Name" id="prod-name" onChange="removeError()" value=""></textarea>
+                    <br />
+                    <textarea class="product-text" placeholder="Product Description" id="prod-detail" value=""></textarea>
+                    <br />
+                    <div id="prod-custom">
+                        <div id="left-side">
+                            <button class="color" id="white" onClick="changeColor()"></button>
+                            <button class="color" id="blue" onClick="changeColor()"></button>
+                            <button class="color" id="beige" onClick="changeColor()"></button>
+                            <button class="color" id="pink" onClick="changeColor()"></button>
+                            <button class="color" id="yellow" onClick="changeColor()"></button>
+                        </div>
+                        <div id="right-side">
+                            <button id="save" onClick="addProduct()">SAVE</button>
+                            <button id="delete" onClick="removeSelected()">Delete</button>
+                        </div>
+                    <div>
+                </th>
+            </tr>
+            <tr>
+                <th class="left">
+                    <button id="clear" onClick="clearSelect()">clear selection</button>
+                </th>
+            </tr>
+        </table>
+    </div>
+</body>

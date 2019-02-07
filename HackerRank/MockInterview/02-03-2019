@@ -1,0 +1,150 @@
+
+import java.util.*;
+
+// package whatever; // don't place package name!
+/***
+  Balanced Parenthesis 
+  Check if a string is a balanced parenthesis
+
+  Input: 
+    '()' -> True 
+    ')(' -> False 
+    '((()))' -> True 
+    '()()(' -> False
+    (){}[]
+    '({[)}]' -> False
+
+    ')))(((' -> ''
+    '()(((' -> '()'
+    '()()((()'->'()()()'
+
+    ()()((() -> 
+    ()()(() -> ()()()
+    ()()((()(())) -> ()() ((     ( ) (( )) )
+ 
+***/
+import java.io.*;
+
+class MyCode {
+	public static void main (String[] args) {
+    // String output = checkBalancedParenthesis("()()(")  == true ? "TRUE" : "FAlSE";
+    // System.out.println(output);
+    // String output2 = checkBalancedParenthesis2("({[)}]")  == true ? "TRUE" : "FAlSE";
+    // String output3 = checkBalancedParenthesis2("({})[]")  == true ? "TRUE" : "FAlSE";
+    // System.out.println(output2);
+    // System.out.println(output3);
+
+    System.out.println(convertValidParenthesis("((()(())"));
+	}
+
+
+  
+  public static String convertValidParenthesis (String s) {
+    char[] chars = s.toCharArray();
+    ArrayList<Integer> validChar = new ArrayList<Integer>();
+    String res = new String();
+    Deque<Integer> stack = new ArrayDeque<Integer>();
+
+    for ( int i = 0; i < chars.length; i++) {
+      char c = chars[i];
+      if ( c == '(') {
+        stack.push(i);
+      }
+      else if ( c == ')') {
+        if (stack.isEmpty()) {
+          continue;
+        }
+        else {
+          int opening = stack.pop();
+          validChar.add(opening);
+          validChar.add(i);
+        }
+      }
+    }
+
+    Collections.sort(validChar);
+
+    
+    for (int i : validChar) {
+      res += chars[i];
+    }
+    return res;
+  }
+
+    public static String convertValidParenthesis2 (String s) {
+    char[] chars = s.toCharArray();
+    
+    Map<Character, Character> map = new HashMap<>();
+    map.put(')','(');
+    map.put('}','{');
+    map.put(']','[');
+    
+    ArrayList<Integer> validChar = new ArrayList<Integer>();
+    String res = new String();
+    Deque<Integer> stack1 = new ArrayDeque<Integer>();
+    Deque<Character> stack2 = new ArrayDeque<Character>();
+
+    for ( int i = 0; i < chars.length; i++) {
+      char c = chars[i];
+      if (!map.containsKey(c)) {
+        stack1.push(i);
+        stack2.push(c);
+      }
+      else {
+
+      }
+    }
+
+    Collections.sort(validChar);
+    for (int i : validChar) {
+      res += chars[i];
+    }
+    return res;
+  }
+
+
+  public static boolean checkBalancedParenthesis2 (String s) {
+    char[] chars = s.toCharArray();
+    Map<Character, Character> map = new HashMap<>();
+    map.put(')','(');
+    map.put('}','{');
+    map.put(']','[');
+
+    Deque<Character> stack = new ArrayDeque<Character>();
+    for ( char c : chars) {
+      if (!map.containsKey(c)) {
+        stack.push(c);
+      }
+      else {
+        if (stack.isEmpty()) return false;
+        char pop = stack.pop();
+        if (map.get(c) != pop)
+          return false;
+      }
+    }
+
+    return stack.isEmpty();
+
+  }
+
+  public static boolean checkBalancedParenthesis (String s) {
+    
+    char[] chars = s.toCharArray();
+    int count = 0;
+
+    for ( char c : chars) {
+      if ( c == ')') {
+        if (count > 0)
+          count--;
+        else 
+          return false;
+      }
+
+      if ( c == '(')
+      count++;
+    }
+
+    return count == 0;
+  }
+
+}
